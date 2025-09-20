@@ -34,13 +34,7 @@ export const personalInfo = {
   }
 };
 
-export const education = {
-  degree: "Bachelor of Computer Science",
-  university: "University of Karachi",
-  period: "2014 - 2018",
-  gpa: "3.8/4.0",
-  specialization: "Software Engineering & Web Development"
-};
+
 
 export const skills = [
   { name: 'React & Next.js Development', level: 95, category: 'Frontend', projects: 35 },
@@ -147,61 +141,11 @@ export const projects = [
   }
 ];
 
-export const testimonials = [
-  {
-    name: 'Sarah Ahmed',
-    role: 'CTO, Tech Innovations Ltd.',
-    content: 'Amir transformed our entire development process. His technical expertise and leadership skills helped us deliver projects 40% faster while maintaining high quality standards.',
-    rating: 5,
-    company: 'Tech Innovations Ltd.'
-  },
-  {
-    name: 'Michael Khan',
-    role: 'Product Manager, Digital Solutions Hub',
-    content: 'Working with Amir was exceptional. He consistently delivered complex features ahead of schedule and his attention to detail is remarkable.',
-    rating: 5,
-    company: 'Digital Solutions Hub'
-  },
-  {
-    name: 'Dr. Fatima Malik',
-    role: 'Director, HealthCare Plus',
-    content: 'The patient management system Amir built for us has revolutionized our operations. The user experience is fantastic and it\'s incredibly reliable.',
-    rating: 5,
-    company: 'HealthCare Plus'
-  }
-];
 
-export const certifications = [
-  { 
-    name: 'AWS Certified Solutions Architect - Associate', 
-    issuer: 'Amazon', 
-    year: '2023', 
-    badge: 'Cloud Architecture',
-    credentialId: 'AWS-SA-2023-001' 
-  },
-  { 
-    name: 'Meta React Developer Certificate', 
-    issuer: 'Meta', 
-    year: '2022', 
-    badge: 'Frontend Development',
-    credentialId: 'META-REACT-2022-015' 
-  },
-  { 
-    name: 'Google Cloud Professional Developer', 
-    issuer: 'Google Cloud', 
-    year: '2023', 
-    badge: 'Cloud Development',
-    credentialId: 'GCP-DEV-2023-089' 
-  }
-];
 
-export const socialLinks = {
-  github: 'https://github.com/amirali', // Updated to match your profile
-  linkedin: 'https://linkedin.com/in/amir-ali-dev', // Updated
-  email: 'mailto:amirpech10@gmail.com', // Using your provided email
-  resume: '/amir-ali-resume.pdf', // Updated filename
-  portfolio: 'https://amirali.dev' // Added portfolio link
-};
+
+
+
 
 // Navigation items that match your component structure
 export const navigationItems = [
@@ -223,20 +167,6 @@ export const footerContent = {
   ]
 };
 
-export const seoData = {
-  title: "Amir Ali - Full Stack Developer", // Fixed: Updated name
-  description: "Experienced full-stack developer from Karachi, Pakistan, specializing in React, Node.js, and cloud architecture. 7+ years of building scalable web applications.",
-  keywords: "full stack developer, react developer, node.js, typescript, aws, karachi developer, pakistan developer, web development",
-  author: "Amir Ali", // Fixed: Updated name
-  url: "https://amirali.dev", // Updated URL
-  image: "/amir-ali-og-image.jpg" // Added OG image
-};
 
-// Contact information for contact section
-export const contactInfo = {
-  title: "Let's Work Together",
-  subtitle: "I'm always interested in new opportunities and exciting projects.",
-  availability: "Available for freelance projects and full-time opportunities",
-  responseTime: "Usually responds within 24 hours",
-  preferredContact: "email" // or "phone"
-};
+
+
