@@ -71,9 +71,7 @@ const Portfolio = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-3">
-            <button className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25">
-              Contact
-            </button>
+            
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-white hover:text-cyan-400 transition-colors duration-300"
