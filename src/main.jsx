@@ -7,6 +7,6 @@ import Portfolio from "./component/Portfolio"
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     
-      <Portfolio />;
+      <Portfolio />
   </StrictMode>
 );
