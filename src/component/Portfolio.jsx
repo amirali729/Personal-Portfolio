@@ -132,7 +132,7 @@ const Portfolio = () => {
               <button
                 key={item}
                 onClick={() => handleSectionChange(item.toLowerCase())}
-                className={`relative font-medium py-2 transition-colors duration-300 text-sm xl:text-base ${
+                className={`relative font-medium py-2 transition-colors duration-300 hover:cursor-pointer text-sm xl:text-base ${
                   activeSection === item.toLowerCase()
                     ? 'text-cyan-400'
                     : 'text-gray-300 hover:text-cyan-400'
