@@ -56,7 +56,7 @@ const Hero = memo(() => {
               <div className="flex flex-row gap-4 sm:gap-6 justify-center lg:justify-start flex-wrap">
                 {/* GitHub Circular Button */}
                 <a 
-                  href="https://github.com/amirali" 
+                  href="https://github.com/amirali729" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-white/25 hover:scale-110 border border-gray-700 hover:border-gray-500"
@@ -78,7 +78,7 @@ const Hero = memo(() => {
                 
                 {/* LinkedIn Circular Button */}
                 <a 
-                  href="https://linkedin.com/in/amir-ali-dev" 
+                  href="https://www.linkedin.com/in/amirali729/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/50 hover:scale-110 border border-blue-500 hover:border-blue-400"
