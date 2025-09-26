@@ -15,8 +15,7 @@ export const personalInfo = {
     that drive growth and deliver exceptional user experiences.`,
 
   // About section content
-  aboutDescription: `I'm a passionate full-stack developer with 7+ years of experience building scalable web applications. 
-    I specialize in creating robust, user-centric solutions that solve real-world problems and drive business growth.`,
+  aboutDescription: `“I’m a passionate aspiring full-stack developer with a strong interest in building scalable web applications. I specialize in creating user-centric solutions and am continuously learning modern technologies to solve real-world problems and contribute to business growth.`,
 
   // Stats for general use
   
