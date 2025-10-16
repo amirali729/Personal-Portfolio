@@ -4,15 +4,13 @@ import AnimatedElement from './AnimatedElement';
 import FloatingParticles from './FloatingParticles';
 
 const Hero = memo(() => {
-
-  return ( 
+  return (
     <section 
-    id="home"
-    className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden"
-    aria-label="Hero section"
+      id="home"
+      className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden"
+      aria-label="Hero section"
     >
       <FloatingParticles />
-      <h1>hello</h1>
       
       {/* Animated Background Elements - Responsive sizes */}
       <div className="absolute inset-0" aria-hidden="true">
