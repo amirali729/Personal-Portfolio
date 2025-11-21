@@ -32,14 +32,19 @@ export const personalInfo = {
 
 
 export const skills = [
-  { name: 'React & Next.js Development', level: 55, category: 'Frontend', projects: 5 },
-  { name: 'Node.js & Express.js', level: 62, category: 'Backend', projects: 5 },
-  { name: 'TypeScript & JavaScript ES6+', level: 78, category: 'Languages', projects: 10 },
-  { name: 'MySQL & MongoDB', level: 50, category: 'Database', projects: 5 }, // Fixed: MySQL spelling
-  { name: ' REST APIs', level: 40, category: 'API Design', projects: 5 },
-  { name: 'Redux & State Management', level: 45, category: 'Frontend', projects: 2 },
-  { name: 'Git & GitHub', level: 85, category: 'DevOps', projects: 10 }, // Fixed: GitHub spelling
-  { name: 'Team Leadership & Mentoring', level: 70, category: 'Leadership', projects: 0 }
+  { name: 'JavaScript' },
+  { name: 'TypeScript' },
+  { name: 'Node'},
+  { name: 'React' },
+  { name: 'Next' },
+  { name: 'Express'},
+  { name: 'MongoDB' }, 
+  { name: 'MySQL' }, 
+  { name: 'PostgreSQL' }, 
+  { name: 'Docker' }, 
+  { name: 'AWS' }, 
+  { name: 'REST APIs'},
+  { name: 'Git'}, 
 ];
 
 export const experience = [

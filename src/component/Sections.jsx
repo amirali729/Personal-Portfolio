@@ -2,13 +2,14 @@ import React, { memo } from 'react';
 import { personalInfo, skills, experience, projects } from './PortfolioData';
 import AnimatedElement from './AnimatedElement';
 import FloatingParticles from './FloatingParticles';
+const skillNames = skills.map(skill => skill.name);
 
 const Sections = memo(() => {
   return (
     <div>
       {/* About Section - Fully Responsive */}
-      <section 
-        id="about" 
+      <section
+        id="about"
         className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 to-black overflow-hidden"
         aria-labelledby="about-heading"
       >
@@ -35,7 +36,7 @@ const Sections = memo(() => {
                 </p>
                 <div className="space-y-4 sm:space-y-6" role="list" aria-label="Contact information">
                   <div className="flex items-center space-x-4" role="listitem">
-                    <div 
+                    <div
                       className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0"
                       aria-hidden="true"
                     >
@@ -43,7 +44,7 @@ const Sections = memo(() => {
                     </div>
                     <div className="min-w-0">
                       <p className="font-semibold text-white text-sm sm:text-base">Email</p>
-                      <a 
+                      <a
                         href={`mailto:${personalInfo.email}`}
                         className="text-gray-400 text-sm sm:text-base break-all hover:text-cyan-400 transition-colors duration-300"
                         aria-label={`Send email to ${personalInfo.email}`}
@@ -53,7 +54,7 @@ const Sections = memo(() => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-4" role="listitem">
-                    <div 
+                    <div
                       className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0"
                       aria-hidden="true"
                     >
@@ -61,7 +62,7 @@ const Sections = memo(() => {
                     </div>
                     <div className="min-w-0">
                       <p className="font-semibold text-white text-sm sm:text-base">Phone</p>
-                      <a 
+                      <a
                         href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}
                         className="text-gray-400 text-sm sm:text-base hover:text-cyan-400 transition-colors duration-300"
                         aria-label={`Call ${personalInfo.phone}`}
@@ -96,55 +97,80 @@ const Sections = memo(() => {
       </section>
 
       {/* Skills Section - Fully Responsive */}
-      <section 
-        id="skills" 
-        className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-black to-gray-900 overflow-hidden"
-        aria-labelledby="skills-heading"
+      <section
+        id="skills"
+        className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-black to-gray-900 overflow-hidden min-h-screen flex items-center"
       >
-        <FloatingParticles />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedElement>
-            <header className="text-center mb-12 sm:mb-16">
-              <h2 id="skills-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
-                My <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Skills</span>
-              </h2>
-              <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" aria-hidden="true"></div>
-            </header>
-          </AnimatedElement>
+        <style>{`
+        @keyframes scrollSkills {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll-skills {
+          animation: scrollSkills 15s linear infinite;
+        }
+        .animate-scroll-skills:hover {
+          animation-play-state: paused;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        .float-particle {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" role="list" aria-label="Technical skills">
-            {skills.map((skill, idx) => (
-              <AnimatedElement key={idx} delay={idx * 100}>
-                <article className="group relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-gray-800/40 backdrop-blur-lg border border-gray-700 hover:bg-gray-700/40 transition-all duration-500" role="listitem">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
-                  <div className="relative">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 leading-tight pr-2">{skill.name}</h3>
-                      <span className="text-cyan-400 font-bold text-sm sm:text-base flex-shrink-0" aria-label={`${skill.level} percent proficiency`}>
-                        {skill.level}%
-                      </span>
-                    </div>
-                    
-                    <div className="w-full bg-gray-700 rounded-full h-2.5 sm:h-3 mb-4 overflow-hidden" role="progressbar" aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100} aria-label={`${skill.name} proficiency`}>
-                      <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                    
-                    <p className="text-gray-400 text-sm">{skill.projects} projects</p>
-                  </div>
-                </article>
-              </AnimatedElement>
-            ))}
+        {/* Floating Particles Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="float-particle absolute w-2 h-2 bg-cyan-500/20 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${4 + Math.random() * 4}s`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative z-10 w-full">
+          {/* Header */}
+          <header className="text-center mb-12 sm:mb-16 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
+              My <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Skills</span>
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full"></div>
+          </header>
+
+          {/* Scrolling Skills Container - No Borders */}
+          <div className="overflow-hidden w-full">
+            <div className="bg-gray-800/50 py-4">
+              <div className="flex items-center gap-8 animate-scroll-skills">
+                {[...skillNames, ...skillNames, ...skillNames].map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="text-base sm:text-lg font-medium text-gray-300 hover:text-white whitespace-nowrap transition-colors duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
-
       {/* Experience Section - Fully Responsive */}
-      <section 
-        id="experience" 
+      <section
+        id="experience"
         className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-900 to-black"
         aria-labelledby="experience-heading"
       >
@@ -169,7 +195,7 @@ const Sections = memo(() => {
                         <div className="w-0.5 h-20 sm:h-24 bg-gradient-to-b from-cyan-500 to-blue-500 mt-4"></div>
                       )}
                     </div>
-                    
+
                     <div className="flex-1 bg-gray-800/50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-700">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
                       <div className="relative">
@@ -179,7 +205,7 @@ const Sections = memo(() => {
                           <time>{exp.period}</time> | {exp.location}
                         </p>
                         <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">{exp.description}</p>
-                        
+
                         <div className="flex flex-wrap gap-2" role="list" aria-label="Technologies used">
                           {exp.technologies.map((tech, tid) => (
                             <span key={tid} className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-full text-xs sm:text-sm font-medium border border-cyan-500/30" role="listitem">
@@ -198,13 +224,13 @@ const Sections = memo(() => {
       </section>
 
       {/* Projects Section - Fully Responsive */}
-      <section 
-        id="projects" 
+      <section
+        id="projects"
         className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-black to-gray-900 overflow-hidden"
         aria-labelledby="projects-heading"
       >
         <FloatingParticles />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedElement>
             <header className="text-center mb-12 sm:mb-16">
@@ -221,16 +247,16 @@ const Sections = memo(() => {
                 <article className="group relative bg-gray-800/40 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-700 hover:bg-gray-700/40 transition-all duration-500 hover:scale-105" role="listitem">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
                   <div className="relative">
-                    <div 
+                    <div
                       className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg sm:rounded-xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300"
                       aria-hidden="true"
                     >
                       <span className="text-white text-lg sm:text-xl" role="img" aria-label="rocket">🚀</span>
                     </div>
-                    
+
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 leading-tight">{project.title}</h3>
                     <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
-                    
+
                     <div className="flex flex-wrap gap-2 mb-6" role="list" aria-label="Technologies used">
                       {project.tech.slice(0, 4).map((tech, tid) => (
                         <span key={tid} className="px-2 py-1 sm:px-3 bg-gray-700 text-gray-200 rounded-full text-xs sm:text-sm font-medium" role="listitem">
@@ -243,7 +269,7 @@ const Sections = memo(() => {
                         </span>
                       )}
                     </div>
-                    
+
                     <div className="flex items-center justify-between text-gray-400 text-xs sm:text-sm">
                       <span>
                         <time>{project.duration}</time>
@@ -260,9 +286,9 @@ const Sections = memo(() => {
           </div>
         </div>
       </section>
-      
 
-     
+
+
     </div>
   );
 });

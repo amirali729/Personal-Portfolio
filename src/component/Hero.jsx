@@ -3,9 +3,12 @@ import { personalInfo } from './PortfolioData';
 import AnimatedElement from './AnimatedElement';
 import FloatingParticles from './FloatingParticles';
 
+
 const Hero = memo(() => {
   return (
+    
     <section 
+    
       id="home"
       className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden"
       aria-label="Hero section"
@@ -18,7 +21,7 @@ const Hero = memo(() => {
         <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-2xl sm:blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/3 sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-64 sm:h-64 bg-teal-500/10 rounded-full blur-2xl sm:blur-3xl animate-pulse delay-2000"></div>
       </div>
-
+    
       <div className="relative z-10 pt-20 sm:pt-32 pb-10 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:justify-between gap-8 lg:gap-12">
           {/* Text Content */}
@@ -123,6 +126,7 @@ const Hero = memo(() => {
           </AnimatedElement>
         </div>
       </div>
+      
     </section>
   );
 });
