@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback,useRef } from 'react';
 import { personalInfo, navigationItems } from './PortfolioData';
 import Hero from './Hero';
 import Sections from './Sections';
@@ -10,7 +10,34 @@ const Portfolio = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const [open, setOpen] = useState(false);
+    const menuRef = useRef(null);
+    const btnRef = useRef(null);
+  
+    useEffect(() => {
+      function handleClick(e) {
+        if (
+          open &&
+          menuRef.current &&
+          !menuRef.current.contains(e.target) &&
+          btnRef.current &&
+          !btnRef.current.contains(e.target)
+        ) {
+          setOpen(false);
+        }
+      }
+      function handleEsc(e) {
+        if (e.key === "Escape") setOpen(false);
+      }
+      document.addEventListener("mousedown", handleClick);
+      document.addEventListener("touchstart", handleClick);
+      document.addEventListener("keydown", handleEsc);
+      return () => {
+        document.removeEventListener("mousedown", handleClick);
+        document.removeEventListener("touchstart", handleClick);
+        document.removeEventListener("keydown", handleEsc);
+      };
+    }, [open]);
   // UPDATE HANDLESCROLL
   const handleScroll = useCallback(() => {
     const current = window.scrollY;
@@ -183,7 +210,40 @@ const Portfolio = () => {
         <Navbar />
 
       </main>
-
+            <button
+                          ref={btnRef}
+                          onClick={() => setOpen((prev) => !prev)}
+                          className="md:hidden fixed bottom-4 right-4 z-[9999] bg-black text-white p-3 rounded-full shadow-lg text-xl"
+                        >
+                          {open ? "✕" : "☰"}
+                        </button>
+            
+                        {/* Mobile Menu */}
+                        <div
+                          ref={menuRef}
+                          className={`md:hidden fixed bottom-20 right-4 z-[9998] transition-all duration-300 ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5 pointer-events-none"
+                            }`}
+                        >
+                          <nav className="flex flex-col gap-3 bg-transparent backdrop-blur-md p-4 rounded-xl shadow-xl border border-white/20">
+                            <a className="text-white" href="https://github.com/amirali729" target="_blank">GitHub</a>
+                            <a className="text-white" href="https://www.linkedin.com/in/amirali729/" target="_blank">LinkedIn</a>
+                            <a className="text-white" href="mailto:amirpech10@gmail.com">Email</a>
+                          </nav>
+                        </div>
+            
+                        {/* Desktop Menu */}
+                        <div className="hidden md:flex fixed bottom-6 right-6 z-[9999] flex-col gap-3">
+                          <a className="text-gray-400 hover:cursor-pointer bg-transparent border border-gray-600 py-1 text-center px-3 rounded-full" href="https://github.com/amirali729">
+                            GitHub
+                          </a>
+                          <a className="text-gray-400 hover:cursor-pointer bg-transparent border border-gray-600 py-1 px-3 text-center rounded-full" href="https://www.linkedin.com/in/amirali729/">
+                            LinkedIn
+                          </a>
+                          <a className="text-gray-400 hover:cursor-pointer bg-transparent border border-gray-600 py-1 text-center rounded-full" href="mailto:amirsimu971@gmail.com">
+                            Email
+                          </a>
+            
+                        </div>
       {/* Enhanced Responsive Footer with Accessibility */}
       <footer className="relative bg-gray-900 overflow-hidden  w-full" role="contentinfo">
         <div className="absolute inset-0" aria-hidden="true">

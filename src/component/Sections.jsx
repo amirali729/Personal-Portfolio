@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useRef, useEffect } from 'react';
 import { personalInfo, skills, experience, projects } from './PortfolioData';
 import AnimatedElement from './AnimatedElement';
 import FloatingParticles from './FloatingParticles';
-const skillNames = skills.map(skill => skill.name);
 
+const skillNames = skills.map(skill => skill.name);
 const Sections = memo(() => {
+  
   return (
     <div>
       {/* About Section - Fully Responsive */}
@@ -74,6 +75,11 @@ const Sections = memo(() => {
                 </div>
               </div>
             </AnimatedElement>
+
+            {/* Mobile Toggle Button */}
+            
+
+
 
             <AnimatedElement delay={400}>
               <div className="grid grid-cols-2 gap-4 sm:gap-6" role="list" aria-label="Statistics">
