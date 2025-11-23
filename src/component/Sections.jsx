@@ -1,11 +1,11 @@
-import React, { memo, useState, useRef, useEffect } from 'react';
+import React, { memo,  } from 'react';
 import { personalInfo, skills, experience, projects } from './PortfolioData';
 import AnimatedElement from './AnimatedElement';
 import FloatingParticles from './FloatingParticles';
 
 const skillNames = skills.map(skill => skill.name);
 const Sections = memo(() => {
-  
+
   return (
     <div>
       {/* About Section - Fully Responsive */}
@@ -35,49 +35,11 @@ const Sections = memo(() => {
                 <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
                   {personalInfo.aboutDescription}
                 </p>
-                <div className="space-y-4 sm:space-y-6" role="list" aria-label="Contact information">
-                  <div className="flex items-center space-x-4" role="listitem">
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0"
-                      aria-hidden="true"
-                    >
-                      <span className="text-white font-bold text-lg sm:text-xl">📧</span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-white text-sm sm:text-base">Email</p>
-                      <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="text-gray-400 text-sm sm:text-base break-all hover:text-cyan-400 transition-colors duration-300"
-                        aria-label={`Send email to ${personalInfo.email}`}
-                      >
-                        {personalInfo.email}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4" role="listitem">
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0"
-                      aria-hidden="true"
-                    >
-                      <span className="text-white font-bold text-lg sm:text-xl">📱</span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-white text-sm sm:text-base">Phone</p>
-                      <a
-                        href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}
-                        className="text-gray-400 text-sm sm:text-base hover:text-cyan-400 transition-colors duration-300"
-                        aria-label={`Call ${personalInfo.phone}`}
-                      >
-                        {personalInfo.phone}
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </AnimatedElement>
 
             {/* Mobile Toggle Button */}
-            
+
 
 
 

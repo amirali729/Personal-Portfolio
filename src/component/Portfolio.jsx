@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback,useRef } from 'react';
 import { personalInfo, navigationItems } from './PortfolioData';
+import { Share2 } from 'lucide-react';
 import Hero from './Hero';
 import Sections from './Sections';
 import Navbar from './Navbar';
@@ -215,7 +216,7 @@ const Portfolio = () => {
                           onClick={() => setOpen((prev) => !prev)}
                           className="md:hidden fixed bottom-4 right-4 z-[9999] bg-black text-white p-3 rounded-full shadow-lg text-xl"
                         >
-                          {open ? "✕" : "☰"}
+                          {open ? "✕" : <Share2 className="w-5 h-5" />}
                         </button>
             
                         {/* Mobile Menu */}
